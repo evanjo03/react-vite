@@ -1,6 +1,10 @@
+import useMediaQuery from "../../hooks/useMediaQuery";
+
 export default function Home() {
+  const isMobile = useMediaQuery("(max-width: 576px)");
+
   return (
-    <div className="p-6 grow shrink">
+    <div>
       <div className="flex flex-col justify-center align-center max-w-5xl m-auto">
         <h1 className="border-b  border-b-[#4b5c61] pb-4 text-center">
           React Documentation Course
@@ -13,13 +17,13 @@ export default function Home() {
         <br />
         <div>I'm using TypeScript and Tailwind for this project.</div>
         <br />
-        <div className="items-center justify-center gap-12 flex-wrap hidden md:flex">
+        <div className="items-center justify-center gap-12 flex-wrap flex">
           <svg
             xmlns="http://www.w5.org/2000/svg"
             fill="none"
             viewBox="0 0 262 33"
-            width={200}
-            height={100}
+            width={isMobile ? 140 : 280}
+            height={isMobile ? 90 : 180}
           >
             <g
               fillRule="evenodd"
@@ -43,9 +47,9 @@ export default function Home() {
           </svg>
           <svg
             fill="none"
-            height="200"
             viewBox="0 0 512 512"
-            width="100"
+            width={isMobile ? 100 : 150}
+            height={isMobile ? 100 : 150}
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect fill="#3178c6" height="512" rx="256" width="512" />

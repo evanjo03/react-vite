@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaReact } from "react-icons/fa";
 import {
   Sidebar,
@@ -6,31 +6,22 @@ import {
   Menu,
   SubMenu,
   MenuItem,
-  useProSidebar,
 } from "react-pro-sidebar";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import useMediaQuery from "../../hooks/useMediaQuery";
 
 export default function NavSidebar() {
-  const isMobile = useMediaQuery("(max-width: 576px)");
-  const [isExpanded, setIsExpanded] = useState(true);
-
-  useEffect(() => {
-    if (isMobile) {
-      setIsExpanded(false);
-    }
-  }, [isMobile]);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (!isExpanded) {
     return (
-      <div className="sticky h-screen top-0 flex flex-col gap-4 p-4 pr-0 justify-between items-center">
+      <div className="sticky drop-shadow-lg bg-[#fff] h-screen w-[50px] br-top-0 flex z-10 flex-col gap-4 justify-between items-center">
         <Link to="/">
-          <div className="p-3">
+          <div className="p-5">
             <FaReact size={30} color={"#61dbfb"} />
           </div>
-        </Link>{" "}
-        <button className="p-2" onClick={() => setIsExpanded(true)}>
+        </Link>
+        <button className="p-5" onClick={() => setIsExpanded(true)}>
           <BsChevronRight size={30} />
         </button>
       </div>
@@ -38,7 +29,7 @@ export default function NavSidebar() {
   }
 
   return (
-    <div className="sticky h-screen top-0 flex flex-col gap-4 p-2 justify-between">
+    <div className="sticky bg-[#fff] drop-shadow-lg absolute left-0 md:w-[400px] h-screen z-10 top-0 flex grow-0 flex-col gap-4 justify-between">
       <div>
         <Link to="/">
           <div className="min-h-4 p-5 flex-row flex items-center justify-start gap-2">
@@ -46,6 +37,7 @@ export default function NavSidebar() {
           </div>
         </Link>
         <Sidebar
+          width="100%"
           rootStyles={{
             [`.${sidebarClasses.container}`]: {
               backgroundColor: "unset",
@@ -78,6 +70,7 @@ export default function NavSidebar() {
           </div>
         </Sidebar>
         <Sidebar
+          width="100%"
           rootStyles={{
             [`.${sidebarClasses.container}`]: {
               backgroundColor: "unset",
@@ -104,7 +97,7 @@ export default function NavSidebar() {
         </Sidebar>
       </div>
       <button
-        className="p-4 flex justify-end"
+        className="flex justify-end p-5"
         onClick={() => setIsExpanded(false)}
       >
         <BsChevronLeft size={30} />
