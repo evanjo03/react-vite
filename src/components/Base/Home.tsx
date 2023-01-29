@@ -1,136 +1,6 @@
-import "./App.css";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
-import { FaReact } from "react-icons/fa";
-import {
-  Menu,
-  MenuItem,
-  Sidebar,
-  sidebarClasses,
-  SubMenu,
-} from "react-pro-sidebar";
-
-function App() {
+export default function Home() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-
-        <Route path="learning" element={<Layout />}>
-          <Route path="your-first-component" element={<YourFirstComponent />} />
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-
-        <Route path="docs" element={<Layout />}>
-          <Route path="use-state" element={<UseState />} />
-          <Route path="use-memo" element={<UseMemo />} />
-          <Route path="use-ref" element={<UseRef />} />
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes>
-    </div>
-  );
-}
-
-function Layout() {
-  return (
-    <div className="flex flex-col">
-      <div className="flex flex-row">
-        <NavSidebar />
-        <Outlet />
-      </div>
-    </div>
-  );
-}
-
-function NavSidebar() {
-  return (
-    <div className="sticky h-96 top-0 flex flex-col gap-4">
-      <Link to="/">
-        <div className="min-h-4 p-5 flex-row flex items-center justify-start gap-2">
-          React-Vite <FaReact size={30} color={"#61dbfb"} />
-        </div>
-      </Link>
-      <Sidebar
-        rootStyles={{
-          [`.${sidebarClasses.container}`]: {
-            backgroundColor: "unset",
-          },
-          borderRightStyle: "none",
-        }}
-      >
-        <div>
-          <div className="px-5">
-            <h3 className="text-[#4b5c61]">Learning</h3>
-          </div>
-          <Menu>
-            <SubMenu label="Describing the UI">
-              <MenuItem
-                component={<Link to="/learning/your-first-component" />}
-              >
-                Your First Component
-              </MenuItem>
-            </SubMenu>
-            <SubMenu label="Managing State">
-              <MenuItem component={<Link to="/" />}>Todo</MenuItem>
-            </SubMenu>
-            <SubMenu label="Adding Interactivity">
-              <MenuItem component={<Link to="/" />}>Todo</MenuItem>
-            </SubMenu>
-            <SubMenu label="Escape Hatches">
-              <MenuItem component={<Link to="/" />}>Todo</MenuItem>
-            </SubMenu>
-          </Menu>
-        </div>
-      </Sidebar>
-      <Sidebar
-        rootStyles={{
-          [`.${sidebarClasses.container}`]: {
-            backgroundColor: "unset",
-          },
-          borderRightStyle: "none",
-        }}
-      >
-        <div>
-          <div className="px-5">
-            <h3 className="text-[#4b5c61]">Docs</h3>
-          </div>
-          <Menu>
-            <MenuItem component={<Link to="/docs/use-state" />}>
-              UseState
-            </MenuItem>
-            <MenuItem component={<Link to="/docs/use-memo" />}>
-              UseMemo
-            </MenuItem>
-            <MenuItem component={<Link to="/docs/use-ref" />}>UseRef</MenuItem>
-          </Menu>
-        </div>
-      </Sidebar>
-    </div>
-  );
-}
-
-function YourFirstComponent() {
-  return <div>Your First Component</div>;
-}
-
-function UseState() {
-  return <div>Use State</div>;
-}
-
-function UseMemo() {
-  return <div>Use Memo</div>;
-}
-
-function UseRef() {
-  return <div>Use Ref</div>;
-}
-
-function Home() {
-  return (
-    <div className="p-24 grow">
+    <div className="p-6 grow shrink">
       <div className="flex flex-col justify-center align-center max-w-5xl m-auto">
         <h1 className="border-b  border-b-[#4b5c61] pb-4 text-center">
           React Documentation Course
@@ -143,13 +13,13 @@ function Home() {
         <br />
         <div>I'm using TypeScript and Tailwind for this project.</div>
         <br />
-        <div className="flex items-center justify-center gap-12">
+        <div className="items-center justify-center gap-12 flex-wrap hidden md:flex">
           <svg
             xmlns="http://www.w5.org/2000/svg"
             fill="none"
             viewBox="0 0 262 33"
-            width={400}
-            height={300}
+            width={200}
+            height={100}
           >
             <g
               fillRule="evenodd"
@@ -175,7 +45,7 @@ function Home() {
             fill="none"
             height="200"
             viewBox="0 0 512 512"
-            width="200"
+            width="100"
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect fill="#3178c6" height="512" rx="256" width="512" />
@@ -191,16 +61,3 @@ function Home() {
     </div>
   );
 }
-
-function NoMatch() {
-  return (
-    <div>
-      <h2>Nothing to see here!</h2>
-      <p>
-        <Link to="/">Go to the home page</Link>
-      </p>
-    </div>
-  );
-}
-
-export default App;
