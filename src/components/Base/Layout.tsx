@@ -1,11 +1,14 @@
+import { SidebarProvider, useSidebar } from "../../contexts/SidebarContext";
 import ContentWrapper from "./ContentWrapper";
 import NavSidebar from "./NavSidebar";
 
 export default function Layout() {
   return (
-    <div className="relative">
-      <NavSidebar />
-      <ContentWrapper />
-    </div>
+    <SidebarProvider>
+      <div className="relative">
+        <NavSidebar />
+        <ContentWrapper />
+      </div>
+    </SidebarProvider>
   );
 }

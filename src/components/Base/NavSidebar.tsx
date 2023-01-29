@@ -9,10 +9,10 @@ import {
 } from "react-pro-sidebar";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useSidebar } from "../../contexts/SidebarContext";
 
 export default function NavSidebar() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+  const { isExpanded, setIsExpanded } = useSidebar();
   if (!isExpanded) {
     return (
       <div className="sticky drop-shadow-lg bg-[#fff] h-screen w-[50px] br-top-0 flex z-10 flex-col gap-4 justify-between items-center">
@@ -29,9 +29,9 @@ export default function NavSidebar() {
   }
 
   return (
-    <div className="sticky bg-[#fff] drop-shadow-lg absolute left-0 md:w-[400px] h-screen z-10 top-0 flex grow-0 flex-col gap-4 justify-between">
+    <div className="sticky bg-[#fff] drop-shadow-lg absolute left-0 w-[300px] md:w-[400px] h-screen z-10 top-0 flex grow-0 flex-col gap-4 justify-between">
       <div>
-        <Link to="/"> 
+        <Link to="/">
           <div className="min-h-4 p-5 flex-row flex items-center justify-start gap-2">
             React-Vite <FaReact size={30} color={"#61dbfb"} />
           </div>

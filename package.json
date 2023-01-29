@@ -9,7 +9,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run predeploy && gh-pages -d build"
   },
   "dependencies": {
     "@types/react-icons": "^3.0.0",

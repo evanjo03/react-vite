@@ -12,7 +12,7 @@ export default function Home() {
         <br />
         <div>
           The goal here is for me to go through the new updated React.js docs
-          and make sure I'm review each concept by doing.
+          and make sure I'm reviewing each concept by doing.
         </div>
         <br />
         <div>I'm using TypeScript and Tailwind for this project.</div>
