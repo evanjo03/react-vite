@@ -1,4 +1,4 @@
-import { SidebarProvider, useSidebar } from "../../contexts/SidebarContext";
+import { SidebarProvider } from "../../contexts/SidebarContext";
 import ContentWrapper from "./ContentWrapper";
 import NavSidebar from "./NavSidebar";
 
