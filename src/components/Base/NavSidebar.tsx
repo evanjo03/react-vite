@@ -31,7 +31,7 @@ export default function NavSidebar() {
   return (
     <div className="sticky bg-[#fff] drop-shadow-lg absolute left-0 md:w-[400px] h-screen z-10 top-0 flex grow-0 flex-col gap-4 justify-between">
       <div>
-        <Link to="/">
+        <Link to="/"> 
           <div className="min-h-4 p-5 flex-row flex items-center justify-start gap-2">
             React-Vite <FaReact size={30} color={"#61dbfb"} />
           </div>
